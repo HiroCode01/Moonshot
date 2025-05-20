@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Moonshot
 //
-//  Created by Fazliddin Abdazimov on 20/05/25.
+//  Created by HiRO on 20/05/25.
 //
 
 import SwiftUI
