@@ -16,6 +16,10 @@ struct MissionView: View {
     let mission: Mission
     let crew: [CrewMember]
     
+    var launchDate: String {
+        mission.launchDate?.formatted(date: .long, time: .omitted) ?? "N/A"
+    }
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -25,10 +29,12 @@ struct MissionView: View {
                     .containerRelativeFrame(.horizontal) {width, axis in width * 0.6}
                     .padding(.top)
                 
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundStyle(.lightBackground)
-                    .padding(.vertical)
+                Text("Launch Date: \(launchDate)")
+                    .font(.caption)
+                    .padding(.top)
+                    
+                
+                RectangleDivider()
                 
                 VStack(alignment: .leading) {
                     Text("Mission Highlights")
@@ -37,10 +43,7 @@ struct MissionView: View {
                     
                     Text(mission.description)
                     
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundStyle(.lightBackground)
-                        .padding(.vertical)
+                    RectangleDivider()
                     
                     Text("Crew")
                         .font(.title.bold())
@@ -100,6 +103,6 @@ struct MissionView: View {
 #Preview {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
-    MissionView(mission: missions[0], astronauts: astronauts)
+    MissionView(mission: missions[1], astronauts: astronauts)
         .preferredColorScheme(.dark)
 }
