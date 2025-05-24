@@ -21,7 +21,7 @@ struct MissionView: View {
     }
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 Image(mission.image)
                     .resizable()
