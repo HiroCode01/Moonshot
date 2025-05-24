@@ -2,7 +2,7 @@
 //  AstronautView.swift
 //  Moonshot
 //
-//  Created by Fazliddin Abdazimov on 24/05/25.
+//  Created by HiRO on 24/05/25.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ struct AstronautView: View {
     let astronaut: Astronaut
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 Image(astronaut.id)
                     .resizable()
@@ -28,6 +28,7 @@ struct AstronautView: View {
 }
 
 #Preview {
-    let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
-    
+    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+    return AstronautView(astronaut: astronauts["armstrong"]!)
+        .preferredColorScheme(.dark)
 }

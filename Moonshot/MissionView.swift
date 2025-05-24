@@ -2,7 +2,7 @@
 //  MissionView.swift
 //  Moonshot
 //
-//  Created by Fazliddin Abdazimov on 24/05/25.
+//  Created by HiRO on 24/05/25.
 //
 
 import SwiftUI
@@ -71,6 +71,7 @@ struct MissionView: View {
                                     Text(crewMember.role)
                                         .foregroundStyle(.white.opacity(0.7))
                                 }
+                                .padding(.trailing)
                             }
                         }
                     }
