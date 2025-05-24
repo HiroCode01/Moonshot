@@ -52,7 +52,7 @@ struct MissionView: View {
                     HStack {
                         ForEach(crew, id: \.role) { crewMember in
                             NavigationLink {
-                                Text("Something...")
+                                AstronautView(astronaut: crewMember.astronaut)
                             } label: {
                                 Image(crewMember.astronaut.id)
                                     .resizable()
