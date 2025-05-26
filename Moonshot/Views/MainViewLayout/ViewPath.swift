@@ -2,11 +2,14 @@
 //  ViewPath.swift
 //  Moonshot
 //
-//  Created by Fazliddin Abdazimov on 26/05/25.
+//  Created by HiRO on 26/05/25.
 //
 
 import Foundation
 
-enum NavigationPath {
-    case missionView
+enum NavigationRoute: Hashable {
+    case listView
+    case gridView
+    case missionView(Mission)
+    case astroanutView(Astronaut)
 }

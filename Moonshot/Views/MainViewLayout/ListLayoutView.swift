@@ -15,9 +15,7 @@ struct ListLayoutView: View {
         ScrollView {
             LazyVStack {
                 ForEach(missions) {mission in
-                    NavigationLink {
-                        MissionView(mission: mission, astronauts: astronauts)
-                    } label: {
+                    NavigationLink(value: NavigationRoute.missionView(mission)){
                         HStack {
                             Image(mission.image)
                                 .resizable()

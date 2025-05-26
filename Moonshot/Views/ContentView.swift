@@ -15,8 +15,10 @@ struct ContentView: View {
     
     @State private var showingGridView = true
     
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             Group {
                 if showingGridView {
                     GridLayoutView(missions: missions, astronauts: astronauts)
@@ -58,6 +60,14 @@ struct ContentView: View {
                         Image(systemName: "ellipsis.circle")
                             .foregroundStyle(.white)
                     }
+                }
+            }
+            .navigationDestination(for: NavigationRoute.self, ) {route in
+                switch route {
+                    case .listView: ListLayoutView(missions: missions, astronauts: astronauts)
+                    case .gridView: GridLayoutView(missions: missions, astronauts: astronauts)
+                    case .missionView(let mission): MissionView(mission: mission, astronauts: astronauts)
+                    case .astroanutView(let astronaut): AstronautView(astronaut: astronaut)
                 }
             }
         }
