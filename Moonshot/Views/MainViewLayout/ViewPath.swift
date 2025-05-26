@@ -8,8 +8,6 @@
 import Foundation
 
 enum NavigationRoute: Hashable {
-    case listView
-    case gridView
     case missionView(Mission)
-    case astroanutView(Astronaut)
+    case astronautView(Astronaut)
 }

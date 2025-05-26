@@ -64,10 +64,8 @@ struct ContentView: View {
             }
             .navigationDestination(for: NavigationRoute.self, ) {route in
                 switch route {
-                    case .listView: ListLayoutView(missions: missions, astronauts: astronauts)
-                    case .gridView: GridLayoutView(missions: missions, astronauts: astronauts)
                     case .missionView(let mission): MissionView(mission: mission, astronauts: astronauts)
-                    case .astroanutView(let astronaut): AstronautView(astronaut: astronaut)
+                    case .astronautView(let astronaut): AstronautView(astronaut: astronaut)
                 }
             }
         }
