@@ -11,8 +11,6 @@ struct ContentView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    let columns = [GridItem(.adaptive(minimum: 150))]
-    
     @State private var showingGridView = true
     
     @State private var path = NavigationPath()
@@ -65,7 +63,9 @@ struct ContentView: View {
             .navigationDestination(for: NavigationRoute.self, ) {route in
                 switch route {
                     case .missionView(let mission): MissionView(mission: mission, astronauts: astronauts)
-                    case .astronautView(let astronaut): AstronautView(astronaut: astronaut)
+                    case .astronautView(let astronaut): AstronautView(astronaut: astronaut) {
+                        path.removeLast(path.count)
+                    }
                 }
             }
         }

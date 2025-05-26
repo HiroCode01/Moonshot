@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
+    var onDone: (() -> Void?)
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -21,6 +22,11 @@ struct AstronautView: View {
                     .padding()
             }
         }
+        .toolbar {
+            Button("Home") {
+                onDone()
+            }
+        }
         .background(.darkBackground)
         .navigationBarTitle(astronaut.name)
         .navigationBarTitleDisplayMode(.inline)
@@ -29,6 +35,6 @@ struct AstronautView: View {
 
 #Preview {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-    return AstronautView(astronaut: astronauts["armstrong"]!)
+    return AstronautView(astronaut: astronauts["armstrong"]!, onDone: {nil})
         .preferredColorScheme(.dark)
 }
