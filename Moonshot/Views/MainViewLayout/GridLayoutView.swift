@@ -2,7 +2,7 @@
 //  GridLayoutView.swift
 //  Moonshot
 //
-//  Created by Fazliddin Abdazimov on 25/05/25.
+//  Created by HiRO on 25/05/25.
 //
 
 import SwiftUI
