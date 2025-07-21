@@ -21,6 +21,8 @@ struct AstronautView: View {
                 Text(astronaut.description)
                     .padding()
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(astronaut.description)
         }
         .toolbar {
             Button("Home") {

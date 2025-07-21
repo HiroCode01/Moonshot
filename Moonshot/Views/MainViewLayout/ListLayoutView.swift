@@ -41,6 +41,8 @@ struct ListLayoutView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.lightBackground)
                         )
+                        .accessibilityElement()
+                        .accessibilityLabel(Text("Tap to view details for \(mission.displayName)"))
                     }
                 }
             }

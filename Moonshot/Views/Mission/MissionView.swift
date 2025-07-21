@@ -23,16 +23,19 @@ struct MissionView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
-                Image(mission.image)
-                    .resizable()
-                    .scaledToFit()
-                    .containerRelativeFrame(.horizontal) {width, axis in width * 0.6}
-                    .padding(.top)
-                
-                Text("Launch Date: \(launchDate)")
-                    .font(.caption)
-                    .padding(.top)
+                VStack {
+                    Image(mission.image)
+                        .resizable()
+                        .scaledToFit()
+                        .containerRelativeFrame(.horizontal) {width, axis in width * 0.6}
+                        .padding(.top)
                     
+                    Text("Launch Date: \(launchDate)")
+                        .font(.caption)
+                        .padding(.top)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Launch date \(launchDate)")
                 
                 RectangleDivider()
                 
@@ -50,6 +53,9 @@ struct MissionView: View {
                         .padding(.bottom, 5)
                 }
                 .padding(.horizontal)
+                .accessibilityElement()
+                .accessibilityLabel("Mission highlights: \(mission.description)")
+                .accessibilityHint("Crew members")
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
